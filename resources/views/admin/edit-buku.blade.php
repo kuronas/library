@@ -174,7 +174,7 @@
           <div>
             <label for="tahunterbit" class="form-label">tahun terbit</label>
             <br>
-            <input type="number" name="tahunterbit" id="tahunterbit" class="form-control" placeholder="Nama penerbit" value="{{$buku->tahunterbit}}">
+            <input type="number" name="tahunterbit" id="tahunterbit" class="form-control" placeholder="tahun diterbitkan" value="{{$buku->tahunterbit}}">
           </div>
           <div>
             <label for="kategoribuku" class="form-label">kategori</label>

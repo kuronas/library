@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class KategoriController extends Controller
 {
     public function index(){
-        $kategoris = KategoriBuku::all();
-        return view('admin.kategori',['kategoris' => $kategoris]);
+        $kategori = KategoriBuku::all();
+        return view('admin.kategori',['kategori' => $kategori]);
     }
 
     public function tambah(){
@@ -30,7 +30,7 @@ class KategoriController extends Controller
     public function edit($slug){
 
         $kategori = KategoriBuku::where('slug',$slug)->first();
-        return view('admin.edit_kategori',['kategori' => $kategori]);
+        return view('admin.edit-kategori',['kategori' => $kategori]);
     }
 
     public function update(Request $request, $slug)
@@ -41,7 +41,7 @@ class KategoriController extends Controller
     
         $kategori = KategoriBuku::where('slug', $slug)->first();
 
-        $kategori->update($request->all());
+        $kategori->update($request->name());
         return redirect('kategori')->with('status', 'Data update Succesfully!');
   
     }

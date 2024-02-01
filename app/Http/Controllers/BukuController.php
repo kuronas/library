@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Buku;
 use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BukuController extends Controller
 {
@@ -51,4 +52,20 @@ class BukuController extends Controller
         return redirect('buku')->with('status', 'Data update Succesfully!');
        }
     }
+    public function delete($slug)
+    {
+        $buku = Buku::where('slug', $slug)->first();
+        return view('admin.delete-buku' ,['buku' => $buku]);
+    }
+
+    
+    public function destroy($slug){
+        $buku = Buku::where('slug', $slug)->first();
+        $buku ->delete();
+
+        return redirect('buku')->with('alert', 'buku sudah dihapus');
+    }
+
+    
 }
+

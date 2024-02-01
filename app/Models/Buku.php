@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -11,6 +12,8 @@ class Buku extends Model
 {
     use HasFactory;
     use Sluggable;
+    use SoftDeletes;
+    
     protected $table = 'buku';
     protected $fillable = [
         'judul','slug','penulis','penerbit','tahunterbit'
@@ -34,4 +37,6 @@ class Buku extends Model
     {
         return $this->belongsToMany(Kategoribuku::class, 'kategoribuku_relasi', 'buku_id', 'kategoribuku_id');
     }
+
+    
 }

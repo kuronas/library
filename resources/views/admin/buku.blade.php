@@ -153,9 +153,9 @@
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Buku</th>
-                  <th>Kategori</th></th>
+                  <th>Buku</th>             
                   <th>Penulis</th>
+                  <th>Kategori</th>
                   <th>Penerbit</th>
                   <th>Tahun Terbit</th>
                   <th>action</th>
@@ -185,7 +185,7 @@
                   </td>
                   <td >
                    <a href="edit-buku/{{$item->slug}}">edit</a>
-                   <a href="#">delete</a>
+                   <a href="delete-buku/{{$item->slug}}">delete</a>
                   </td>
                 </tr>
                 @endforeach

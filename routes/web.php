@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AkunController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
@@ -27,25 +27,30 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class,'index']);
 Route::get('/admin',[AdminController::class,'index']);
 // buku
-Route::get('/buku',[BukuController::class,'index']);
+Route::get('/buku',[BukuController::class,'index'])->middleware(['auth', 'verified'])->name('admin');
 Route::get('/add-buku',[BukuController::class,'tambah']);
-Route::post('add-buku',[BukuController::class,'store']);
-Route::get('edit-buku/{slug}',[BukuController::class,'edit']);
-Route::post('edit-buku/{slug}',[BukuController::class,'update']);
+Route::post('/add-buku',[BukuController::class,'store']);
+Route::get('/edit-buku/{slug}',[BukuController::class,'edit']);
+Route::post('/edit-buku/{slug}',[BukuController::class,'update']);
+Route::get('/delete-buku/{slug}',[BukuController::class,'delete']);
+Route::get('/destroy-buku/{slug}',[BukuController::class,'destroy']);
 
 // kategori
 Route::get('/kategori',[KategoriController::class,'index']);
 Route::get('/add-kategori',[KategoriController::class,'tambah']);
-Route::post('add-kategori',[KategoriController::class,'store']);
+Route::post('/add-kategori',[KategoriController::class,'store']);
 Route::get('/edit-kategori/{slug}',[KategoriController::class,'edit']);
-Route::put('edit-kategori/{slug}',[KategoriController::class,'update']);
+Route::put('/edit-kategori/{slug}',[KategoriController::class,'update']);
 Route::get('/delete-kategori/{slug}',[KategoriController::class,'delete']);
 Route::get('/destroy-kategori/{slug}',[KategoriController::class,'destroy']);
 
 
 Route::get('/peminjaman',[PeminjamanController::class,'index']);
-Route::get('/user',[AkunController::class,'index']);
-
+// user
+Route::get('/user',[UserController::class,'index']);
+Route::get('/detail-user/{slug}',[UserController::class,'show']);
+Route::get('/delete-user/{slug}',[UserController::class,'delete']);
+Route::delete('/destroy-user/{slug}',[UserController::class,'destroy']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -56,5 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';

@@ -161,7 +161,7 @@
           </tr>
         </thead>
         <tbody >
-          @foreach ($kategoris as $item)
+          @foreach ($kategori as $item)
           <tr>
             <td >
               {{ $loop->iteration}}
