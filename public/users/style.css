@@ -1,0 +1,423 @@
+/* Google Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 78px;
+    background: #fff;
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5s ease;
+}
+.sidebar.open {
+    width: 250px;
+}
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.sidebar .logo-details .icon {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.sidebar .logo-details .logo_name {
+    color: #11101d;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+    opacity: 1;
+}
+.sidebar .logo-details #btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.sidebar.open .logo-details #btn {
+    text-align: right;
+}
+.sidebar i {
+    color: #11101d;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+}
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+.sidebar li .tooltip {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    z-index: 3;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+}
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sidebar.open li .tooltip {
+    display: none;
+}
+.sidebar input {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    width: 50px;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    background: #fff;
+}
+.sidebar.open input {
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+.sidebar .bx-search {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    background: #fff;
+    color: #11101d;
+}
+.sidebar.open .bx-search:hover {
+    background: #fff;
+    color: #fff;
+}
+.sidebar .bx-search:hover {
+    background: #11101d;
+    color: #fff;
+}
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #fff;
+}
+.sidebar li a:hover {
+    background: #11101d;
+}
+.sidebar li a .links_name {
+    color: #11101d;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+.sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: #fff;
+}
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+.sidebar li.profile {
+    position: fixed;
+    height: 60px;
+    width: 78px;
+    left: 0;
+    bottom: -8px;
+    padding: 10px 14px;
+    background: #fff;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+.sidebar.open li.profile {
+    width: 250px;
+}
+.sidebar li .profile-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.sidebar li img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+.sidebar li.profile .name,
+.sidebar li.profile .job {
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    white-space: nowrap;
+}
+.sidebar li.profile .job {
+    font-size: 12px;
+}
+.sidebar .profile #log_out {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: #fff;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0px;
+    transition: all 0.5s ease;
+}
+.sidebar.open .profile #log_out {
+    width: 50px;
+    background: none;
+}
+.color-bg {
+    background: #fff;
+}
+.header {
+    background-position: center;
+    width: 100%;
+    height: 550px;
+    background: url(../images/6845684.jpg);
+    background-repeat: no-repeat;
+    background-position: 80%;
+    background-size: 700px 500px;
+    padding-top: 20px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.content {
+    margin-left: 8%;
+    margin-top: 10%;
+    max-width: 600px;
+}
+.content h2 {
+    font-size: 40px;
+    font-weight: bolder;
+}
+.content p {
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+.link {
+    margin-top: 30px;
+}
+
+.hire {
+    color: #fff;
+    text-decoration: none;
+    background: coral;
+    padding: 9px 25px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.5s;
+    margin-left: 8%;
+}
+
+.link .hire:hover {
+    background: transparent;
+    border: 1px solid coral;
+    color: coral;
+}
+
+.headings {
+    text-align: center;
+    color: var(--search-text);
+    margin-top: 30px;
+    font-size: 50px;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.headings h1 {
+    font-size: 50px;
+}
+
+.home-section {
+    margin-left: 8%;
+    background: white;
+    max-width: auto;
+}
+.about {
+    align-items: center;
+    margin: auto;
+    display: flex;
+    width: 85%;
+}
+
+.about img {
+    margin-left: 10%;
+    height: 260px;
+    width: 260px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 5px 6px 15px rgba(10, 10, 10, 0.1);
+    cursor: pointer;
+    background-color: #11101d;
+    transition: 0.6s;
+}
+
+.isi {
+    padding: 35px;
+}
+
+.isi ul li {
+    line-height: 1.5rem;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-size: 0.785rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    padding: 0px 0.6rem;
+    background-color: coral;
+    border-radius: 2px;
+}
+.rate {
+    float: left;
+    height: 30px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position: absolute;
+    display: none;
+}
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+.rated:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+.rate:not(:checked) > label:before {
+    content: "★ ";
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+.star-rating-complete {
+    color: #c59b08;
+}
+.rating-container .form-control:hover,
+.rating-container .form-control:focus {
+    background: #fff;
+    border: 1px solid #ced4da;
+}
+.rating-container textarea:focus,
+.rating-container input:focus {
+    color: #000;
+}
+.rated {
+    float: left;
+    height: 46px;
+}
+.rated:not(:checked) > input {
+    position: absolute;
+    display: none;
+}
+.rated:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ffc700;
+}
+.rated:not(:checked) > label:before {
+    content: "★ ";
+}
+.rated > input:checked ~ label {
+    color: #ffc700;
+}
+.rated:not(:checked) > label:hover,
+.rated:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rated > input:checked + label:hover,
+.rated > input:checked + label:hover ~ label,
+.rated > input:checked ~ label:hover,
+.rated > input:checked ~ label:hover ~ label,
+.rated > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+@media (max-width: 420px) {
+    .sidebar li .tooltip {
+        display: none;
+    }
+}

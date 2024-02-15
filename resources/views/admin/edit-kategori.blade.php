@@ -153,9 +153,9 @@
 @endif
 
       <div class="my-5 w-50">
-        <form action="/edit-kategori/{slug}" method="post" class="">
+        <form action="/edit-kategori/{{$kategori->slug}}" method="POST" class="">
           @csrf
-          @method('put')
+          @method('PUT')
           <div>
             <label for="name" class="form-label">Name</label>
             <br>

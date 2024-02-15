@@ -153,8 +153,8 @@
     </div>
 @endif
 
-      <div class="my-5 w-50">
-        <form action="add-buku" method="post" class="">
+      <div class="w-50  pb-10">
+        <form action="add-buku" method="post" enctype='multipart/form-data'>
           @csrf
           <div>
             <label for="judul" class="form-label">judul</label>
@@ -176,8 +176,13 @@
             <br>
             <input type="number" name="tahunterbit" id="tahunterbit" class="form-control" placeholder="Nama penerbit">
           </div>
+          <label for="image" class="form-label">image</label>
+            <br>
+            <input type="file" name="image"  class="form-control" >
+          </div>
+       
           <div>
-            <label for="kaetegoribuku" class="form-label">kategori</label>
+            <label for="kategoribuku" class="form-label">kategori</label>
             
             <select name="kategoribuku[]" id="kategoribuku" class="form-control select-multiple" multiple="multiple" >
                

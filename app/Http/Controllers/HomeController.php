@@ -8,6 +8,7 @@ use App\Models\User;
 
 use App\Models\kategoriBuku;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -29,15 +30,25 @@ class HomeController extends Controller
    }
    else if($usertype=='petugas')
    {
-    return view('petugas.home');
+    $bukuCount = Buku::count();
+    $kategoriCount = kategoriBuku::count();
+    $userCount = User::count();
+    return view('admin.home',['buku_count' => $bukuCount, 'kategori_count' => $kategoriCount,
+    'user_count' => $userCount
+]);;
    }
    else
    {
-    return view('user.home');
+    $bukus = Buku::all();
+    $users = User::all();
+    return view('user.home',['bukus' => $bukus,'users' => $users]);
    }
 
 
-}
+ 
+   }
+
+   
 
 }
 

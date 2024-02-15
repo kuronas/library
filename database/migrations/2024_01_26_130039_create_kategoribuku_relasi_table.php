@@ -27,5 +27,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('kategoribuku_relasi');
+        $table->foreign('kategoribuku_id')
+  ->references('id')->on('kategoribuku')
+  ->onDelete('cascade');
     }
 };

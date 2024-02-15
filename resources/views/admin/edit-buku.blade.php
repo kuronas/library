@@ -154,8 +154,9 @@
 @endif
 
       <div class="my-2 w-50">
-        <form action="add-buku" method="post" class="">
+        <form action="/edit-buku/{{$buku->slug}}" method="POST" enctype='multipart/form-data'>
           @csrf
+          @method('PUT')
           <div>
             <label for="judul" class="form-label">judul</label>
             <br>
@@ -177,18 +178,43 @@
             <input type="number" name="tahunterbit" id="tahunterbit" class="form-control" placeholder="tahun diterbitkan" value="{{$buku->tahunterbit}}">
           </div>
           <div>
+            <label for="image" class="form-label">image</label>
+            <br>
+            <input type="file" name="image"  class="form-control" >
+          </div>
+          <div>
+            <label for="currentimage" class="form-label">image</label>
+            <div>
+              @if($buku->cover!='')
+              <img src="{{ asset('storage/cover/'.$buku->cover)}}" alt="">
+              @else 
+              <img src="{{ asset('images/no_image.png')}}" alt="">
+              @endif
+            </div>
+          </div>
+         
+          <div>
             <label for="kategoribuku" class="form-label">kategori</label>
             
-            <select name="kategoribuku[]" id="kategoribuku" class="form-control select-multiple" multiple="multiple" >
+            <select name="kategoris[]" id="kategoribuku" class="form-control select-multiple" multiple="multiple" >
                
                 @foreach ($kategoris as $item)
                 <option value="{{$item->id}}">{{ $item->name}}</option>
                 @endforeach
             </select>
           </div>
+          <div>
+            <label for="currentkategori" class="form-label">kategori</label>
+            
+            <ul>
+             @foreach ($buku->kategoris as $kategori)
+              <li>{{$kategori->name}}</li>
+                @endforeach
+            </ul>
+          </div>
 
           <div class="mt-5">
-            <button class="btn btn-success" type="submit" style="background-color: chartreuse">Add</button>
+            <button class="btn btn-success" type="submit" style="background-color: chartreuse">Update</button>
           </div>
         </form>
       </div>

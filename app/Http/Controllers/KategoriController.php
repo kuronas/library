@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
@@ -11,6 +12,8 @@ class KategoriController extends Controller
         $kategori = KategoriBuku::all();
         return view('admin.kategori',['kategori' => $kategori]);
     }
+    
+
 
     public function tambah(){
      
@@ -38,11 +41,10 @@ class KategoriController extends Controller
         $validated = $request->validate([
             'name' => 'required|unique:kategoribuku|max:255',
         ]);
-    
         $kategori = KategoriBuku::where('slug', $slug)->first();
-
-        $kategori->update($request->name());
-        return redirect('kategori')->with('status', 'Data update Succesfully!');
+   
+       $kategori->update($request->all());
+        return redirect('kategori')->with('alert', 'kategori sudah di update');
   
     }
     public function delete($slug){
@@ -52,8 +54,7 @@ class KategoriController extends Controller
      
     }
     public function destroy($slug){
-        $kategori = KategoriBuku::where('slug', $slug)->first();
-        $kategori->delete();
+        $kategori = $deleted = DB::table('kategoribuku')->where('slug', $slug)->delete();
         return redirect('kategori')->with('alert', 'kategori sudah dihapus');
     }
 }

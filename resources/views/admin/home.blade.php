@@ -118,7 +118,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link  active" href="peminjaman">
+                    <a class="nav-link  active" href="adminpeminjaman">
                       <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <title>shop </title>
@@ -156,7 +156,7 @@
                       </div>
                       <div class="col-4 text-end">
                         <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                          <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                          <i class="ni ni-book-bookmark text-lg opacity-10" aria-hidden="true"></i>
                         </div>
                       </div>
                     </div>
@@ -169,7 +169,7 @@
                     <div class="row">
                       <div class="col-8">
                         <div class="numbers">
-                          <p class="text-sm mb-0 text-capitalize font-weight-bold">kaetgori</p>
+                          <p class="text-sm mb-0 text-capitalize font-weight-bold">kategori</p>
                           <h5 class="font-weight-bolder mb-0">
                             {{$kategori_count}}
          
@@ -178,7 +178,7 @@
                       </div>
                       <div class="col-4 text-end">
                         <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                          <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                          <i class="ni ni-books text-lg opacity-10" aria-hidden="true"></i>
                         </div>
                       </div>
                     </div>
@@ -200,7 +200,7 @@
                       </div>
                       <div class="col-4 text-end">
                         <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                          <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                          <i class="ni ni-circle-08 text-lg opacity-10" aria-hidden="true"></i>
                         </div>
                       </div>
                     </div>

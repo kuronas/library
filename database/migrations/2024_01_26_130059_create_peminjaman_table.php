@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
-            $table->string('status');
+            $table->string('status')->default('In Progress');
             $table->timestamps();
         });
     }

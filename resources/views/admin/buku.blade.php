@@ -147,13 +147,16 @@
 
             <div class="m-5 justify-end flex">
               <a href="add-buku" class="btn btn-primary bg-green-600">Add</a>
+              <a href="buku-sampah" class="btn btn-secondary mx-2">buku yang sudah di hapus</a>
              </div>
+     
 
-            <table class="table" style="width: 100%">
+            <table class="table pb-10" style="width: 100%">
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Buku</th>             
+                  <th>Buku</th>         
+                  <th>sampul</th>        
                   <th>Penulis</th>
                   <th>Kategori</th>
                   <th>Penerbit</th>
@@ -169,6 +172,10 @@
                   </td>
                   <td >
                     {{ $item->judul}}
+                  </td>
+                  <td >
+                    <img src=" storage/cover/{{ $item->cover}}" alt="" height="100px" width="100px" >
+                   
                   </td>
                   <td >
                     {{ $item->penulis}}

@@ -142,11 +142,16 @@
           <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
  
 
-      <h2>Apakah kamu yakin ingin menghapus kategori {{$buku->name}}?</h2>
+      <h2>Apakah kamu yakin ingin menghapus user {{$buku->name}}?</h2>
 
+      <form action="/destroy-buku/{{$buku->slug}}" method="post" >
+    
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-danger">delete</button>
+    </form>
       <div>
-        <a href="/destroy-buku/{{$buku->slug}}" class="btn btn-danger">yes</a>
-        <a href="/buku" class="btn btn-primary">no</a>
+      
       </div>
       
     </x-app-layout>

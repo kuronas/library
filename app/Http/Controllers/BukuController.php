@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\Ulasan;
 use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
+use App\Models\KoleksiPribadi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BukuController extends Controller
 {
@@ -30,6 +33,13 @@ class BukuController extends Controller
             'penerbit' => 'required|max:255',
             'tahunterbit' => 'required|max:255',
         ]);
+        $newName='';
+        if($request->file('image')){
+            $extension = $request->file('image')->getCLientOriginalExtension();
+            $newName = $request->judul.'.'.now()->timestamp.'.'.$extension;
+            $request->file('image')->storeAs('cover', $newName);
+        }
+        $request['cover'] = $newName;
         $buku = Buku::create($request -> all());
         $buku->kategoris()->sync($request->kategoribuku);
         return redirect('buku')->with('status', 'Data add Succesfully!');
@@ -42,15 +52,24 @@ class BukuController extends Controller
     }
 
     public function update(Request $request,$slug){
-       
+   
+ 
+       if($request->file('image')){
+        $extension = $request->file('image')->getCLientOriginalExtension();
+        $newName = $request->judul.'.'.now()->timestamp.'.'.$extension;
+        $request->file('image')->storeAs('cover', $newName);
+        $request['cover'] = $newName;
+       }
        $buku = Buku::where('slug', $slug)->first();
    
-       $buku->update($request->all());
+      $buku->update($request->all());
 
-       if($request->kategoris){
-        $buku->kategoris()->sync($request->ketegoris);
-        return redirect('buku')->with('status', 'Data update Succesfully!');
-       }
+    $buku = Buku::where('slug', $slug)->first();
+    if($request->kategoris){
+        $buku->kategoris()->sync($request->kategoris);
+     }
+ 
+       return redirect('buku')->with('status', 'buku sudah di update');
     }
     public function delete($slug)
     {
@@ -63,9 +82,43 @@ class BukuController extends Controller
         $buku = Buku::where('slug', $slug)->first();
         $buku ->delete();
 
-        return redirect('buku')->with('alert', 'buku sudah dihapus');
+        return redirect('buku')->with('status', 'buku sudah dihapus');
     }
 
-    
+    public function deletedbuku(){
+
+        $deletedBuku = Buku::onlyTrashed()->get();
+        return view('admin.buku-sampah',['deletedbuku' => $deletedBuku]);
+    }
+    public function restore($slug){
+
+        $buku = Buku::withTrashed()->where('slug', $slug)->first();
+        $buku->restore();
+        return redirect('buku')->with('status', 'buku sudah di kembalikan');
+    }
+    public function forceDelete($slug){
+
+        $buku = Buku::withTrashed()->where('slug', $slug)->first();
+        $buku->forceDelete();
+        return redirect('buku')->with('status', 'buku sudah di kembalikan');
+    }
+
+
+    public function detailbuku($slug)
+    {
+        $buku = Buku::where('slug', $slug)->first();
+        $bukus = Buku::all();
+        $kategoris = Kategoribuku::all();
+       
+
+        // Get the user's favorite book IDs
+        $userId = Auth::id();
+        $ulasan = Ulasan::where('user_id', $userId)->with(['user', 'buku'])->get();
+        $koleksipribadi = KoleksiPribadi::where('user_id', $userId)->pluck('buku_id')->toArray();
+        return view('user.detail-buku', ['kategoris' => $kategoris, 'buku' => $buku, 'koleksipribadi' => $koleksipribadi, 'ulasan' => $ulasan]);
+    }
 }
+
+
+
 

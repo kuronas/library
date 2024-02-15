@@ -16,7 +16,7 @@ class Buku extends Model
     
     protected $table = 'buku';
     protected $fillable = [
-        'judul','slug','penulis','penerbit','tahunterbit'
+        'judul','cover','slug','penulis','penerbit','tahunterbit'
     ];
 
     public function sluggable(): array
@@ -38,5 +38,13 @@ class Buku extends Model
         return $this->belongsToMany(Kategoribuku::class, 'kategoribuku_relasi', 'buku_id', 'kategoribuku_id');
     }
 
+    public function ulasan()
+    {
+        return $this->hasMany(Ulasan::class);
+    }
     
+    public function averageRating()
+{
+    return $this->ulasan()->average('rating');
+}
 }

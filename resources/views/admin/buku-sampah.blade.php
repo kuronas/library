@@ -139,46 +139,67 @@
                   </li>
                 </div>                      
           </aside>
-          <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-       
-
+          <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg mb-10">
+      
             <div class="mt-5">
-              <h2>data peminjaman</h2>
+              <h2>data buku</h2>
             </div>
 
-            <table class="table" style="width: 50%" >
+            <div class="m-5 justify-end flex">
+              <a href="buku" class="btn btn-primary bg-green-600">kembali</a>
+             </div>
+
+            <table class="table pb-10" style="width: 100%">
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>nama</th>
-                  <th>judul</th>
-                  <th>Peminjaman</th>
-                  <th>Pengembalian</th>
-                  <th>Status </th>
+                  <th>Buku</th>         
+                  <th>sampul</th>        
+                  <th>Penulis</th>
+                  <th>Kategori</th>
+                  <th>Penerbit</th>
+                  <th>Tahun Terbit</th>
                   <th>action</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($peminjaman as $item)
+                 @foreach ($deletedbuku as $item)
                 <tr>
-                  <td>{{ $loop->iteration}}</td>
-                  <td>{{ $item->user->name}}</td>
-                  <td>{{ $item->buku->judul}}</td>
-                  <td>{{ $item->tanggal_peminjaman}}</td>
-                  <td>{{ $item->tanggal_pengembalian}}</td>
-                  <td  @if ($item->status == 'sudah dikembalikan') style="background-color: green; color:white;" @endif>{{ $item->status}}</td>
-                  <td>
-                    <a href="/approved/{{$item->id}}">dikembalikan</a>
+                  <td >
+                    {{ $loop->iteration}}
+                  </td>
+                  <td >
+                    {{ $item->judul}}
+                  </td>
+                  <td >
+                    <img src=" storage/cover/{{ $item->cover}}" alt="" height="100px" width="100px" >
+                   
+                  </td>
+                  <td >
+                    {{ $item->penulis}}
+                  </td>
+                    <td >
+                      @foreach($item->kategoris as $kategori)
+                      {{$kategori->name}} <br>
+                      @endforeach
+                    </td>
+              <td >
+                    {{ $item->penerbit}}
+                  </td> <td >
+                    {{ $item->tahunterbit}}
+                  </td>
+                  <td >
+                   <a href="restore-buku/{{$item->slug}}">restore</a>
+                   <a href="forceDelete-buku/{{$item->slug}}">delete</a>
                   </td>
                 </tr>
                 @endforeach
-                </tr>
               </tbody>
             </table>
             
                         
         <!--   Core JS Files   -->
-       
+          </main>
       </body>
       
       </html>
