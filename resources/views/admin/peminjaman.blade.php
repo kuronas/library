@@ -7,9 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="admin/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="ad,om/assets/img/favicon.png">
-  <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
+ 
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -144,6 +142,10 @@
 
             <div class="mt-5">
               <h2>data peminjaman</h2>
+            </div>
+
+            <div class="m-3">
+              <a href="exportpdf" class="btn btn-primary">download data</a>
             </div>
 
             <table class="table" style="width: 50%" >

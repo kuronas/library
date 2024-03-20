@@ -24,60 +24,31 @@
             <li>
               <a href="home">
                 <i class="bx bx-grid-alt"></i>
-                <span class="links_name">home</span>
+                <span class="links_name">Home</span>
               </a>
-              <span class="tooltip">Dashboard</span>
+              <span class="tooltip">Home</span>
             </li>
             <li>
-              <a href="#">
+              <a href="koleksi">
                 <i class="bx bx-user"></i>
-                <span class="links_name">User</span>
+                <span class="links_name">Koleksi Pribadi</span>
               </a>
-              <span class="tooltip">User</span>
+              <span class="tooltip">Koleksi Pribadi</span>
             </li>
             <li>
-              <a href="#">
-                <i class="bx bx-chat"></i>
-                <span class="links_name">Messages</span>
-              </a>
-              <span class="tooltip">Messages</span>
-            </li>
-            <li>
-              <a href="#">
+              <a href="datapeminjaman">
                 <i class="bx bx-pie-chart-alt-2"></i>
-                <span class="links_name">Analytics</span>
+                <span class="links_name">Data Peminjaman</span>
               </a>
-              <span class="tooltip">Analytics</span>
+              <span class="tooltip">Data Peminjaman</span>
             </li>
             <li>
-              <a href="#">
-                <i class="bx bx-folder"></i>
-                <span class="links_name">File Manager</span>
-              </a>
-              <span class="tooltip">Files</span>
-            </li>
-            <li>
-              <a href="#">
-                <i class="bx bx-cart-alt"></i>
-                <span class="links_name">Order</span>
-              </a>
-              <span class="tooltip">Order</span>
-            </li>
-            <li>
-              <a href="#">
-                <i class="bx bx-heart"></i>
-                <span class="links_name">Saved</span>
-              </a>
-              <span class="tooltip">Saved</span>
-            </li>
-            <li>
-              <a href="#">
-                <i class="bx bx-cog"></i>
-                <span class="links_name">Setting</span>
-              </a>
-              <span class="tooltip">Setting</span>
-            </li>
-          
+            <a href="list-buku">
+              <i class="bx bx-pie-chart-alt-2"></i>
+              <span class="links_name">List Buku</span>
+            </a>
+            <span class="tooltip">List Buku</span>
+          </li>
           </ul>
         </div>
 
@@ -112,7 +83,9 @@
                      
                         <div class="card-body">
                           <h5 class="card-title">{{$item->judul}}</h5>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <div>
+                            <a href="detailbuku/{{$item->slug}}" class="btn btn-primary">Detail</a>
+                          </div>
                         </div>
                       </div>
                 </div>

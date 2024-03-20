@@ -7,9 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="admin/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="ad,om/assets/img/favicon.png">
-  <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
+ 
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -145,10 +143,17 @@
               <h2>data buku</h2>
             </div>
 
-            <div class="m-5 justify-end flex">
-              <a href="add-buku" class="btn btn-primary bg-green-600">Add</a>
-              <a href="buku-sampah" class="btn btn-secondary mx-2">buku yang sudah di hapus</a>
-             </div>
+            
+            <div class="m-5 flex justify-between">
+              <div>
+                  <a href="exportpdf" class="btn btn-primary mr-4">Download Data</a>
+              </div>
+              <div>
+                  <a href="add-buku" class="btn btn-primary bg-green-600">Add</a>
+                  <a href="buku-sampah" class="btn btn-secondary mx-2">Buku yang sudah dihapus</a>
+              </div>
+          </div>
+        
      
 
             <table class="table pb-10" style="width: 100%">

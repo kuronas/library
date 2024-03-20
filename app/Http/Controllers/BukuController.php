@@ -7,6 +7,7 @@ use App\Models\Ulasan;
 use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
 use App\Models\KoleksiPribadi;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -116,6 +117,14 @@ class BukuController extends Controller
         $ulasan = Ulasan::where('user_id', $userId)->with(['user', 'buku'])->get();
         $koleksipribadi = KoleksiPribadi::where('user_id', $userId)->pluck('buku_id')->toArray();
         return view('user.detail-buku', ['kategoris' => $kategoris, 'buku' => $buku, 'koleksipribadi' => $koleksipribadi, 'ulasan' => $ulasan]);
+    }
+
+    public function exportpdf(){
+        $data = Buku::all();
+
+        view()->share('data' ,$data);
+        $pdf = Pdf::loadview('admin/databuku-pdf');
+        return $pdf->download('data.pdf');
     }
 }
 

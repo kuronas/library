@@ -41,6 +41,7 @@ Route::delete('/destroy-buku/{slug}',[BukuController::class,'destroy']);
 Route::get('/buku-sampah',[BukuController::class,'deletedbuku']);
 Route::get('/restore-buku/{slug}',[BukuController::class,'restore']);
 Route::get('/detailbuku/{slug}',[BukuController::class,'detailbuku']);
+Route::get('exportpdf',[BukuController::class,'exportpdf']);
 
 
 // kategori
@@ -59,6 +60,8 @@ Route::get('/user',[UserController::class,'index']);
 Route::get('/detail-user/{slug}',[UserController::class,'show']);
 Route::get('/delete-user/{slug}',[UserController::class,'delete']);
 Route::delete('/destroy-user/{slug}',[UserController::class,'destroy']);
+Route::get('/add-user',[UserController::class,'add']);
+Route::post('tambah-user',[UserController::class,'store']);
 
 
 Route::get('/list-buku',[ClientController::class,'index']);
@@ -67,6 +70,7 @@ Route::get('/peminjaman',[PeminjamanController::class,'index']);
 Route::post('/peminjaman',[PeminjamanController::class,'store']);
 Route::get('/datapeminjaman',[PeminjamanController::class,'datapeminjaman']);
 Route::get('/approved/{id}',[PeminjamanController::class,'approved']);
+Route::get('exportpdf',[PeminjamanController::class,'exportpdf']);
 // koleksi
 Route::get('/koleksi',[KoleksiController::class,'index']);
 Route::post('/koleksi',[KoleksiController::class,'store']);
