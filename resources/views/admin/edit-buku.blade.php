@@ -181,16 +181,26 @@
             <input type="file" name="image"  class="form-control" >
           </div>
           <div>
-            <label for="currentimage" class="form-label">image</label>
+            <label for="currentimage" class="form-label">image yang sudah ada</label>
             <div>
               @if($buku->cover!='')
-              <img src="{{ asset('storage/cover/'.$buku->cover)}}" alt="">
+              <img src="{{ asset('storage/cover/'.$buku->cover)}}" alt="" width="100px" height="100px">
               @else 
               <img src="{{ asset('images/no_image.png')}}" alt="">
               @endif
             </div>
           </div>
          
+
+          <div>
+            <label for="currentkategori" class="form-label">kategori Yang Sudah ada</label>
+            
+            <ul>
+             @foreach ($buku->kategoris as $kategori)
+              <li>{{$kategori->name}}</li>
+                @endforeach
+            </ul>
+          </div>
           <div>
             <label for="kategoribuku" class="form-label">kategori</label>
             
@@ -201,15 +211,7 @@
                 @endforeach
             </select>
           </div>
-          <div>
-            <label for="currentkategori" class="form-label">kategori</label>
-            
-            <ul>
-             @foreach ($buku->kategoris as $kategori)
-              <li>{{$kategori->name}}</li>
-                @endforeach
-            </ul>
-          </div>
+       
 
           <div class="mt-5">
             <button class="btn btn-success" type="submit" style="background-color: chartreuse">Update</button>

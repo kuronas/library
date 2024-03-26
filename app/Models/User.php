@@ -18,7 +18,11 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     * 
      */
+
+      
+
     protected $fillable = [
         'name',
         'nama_lengkap',
@@ -45,6 +49,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        
     ];
 
     public function sluggable(): array

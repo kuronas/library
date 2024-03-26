@@ -181,8 +181,9 @@
        
           <div>
             <label for="kategoribuku" class="form-label">kategori</label>
+            <br>
             
-            <select name="kategoribuku[]" id="kategoribuku" class="form-control select-multiple" multiple="multiple" >
+            <select name="kategoris[]" id="kategoribuku" class="form-control select-multiple w-45" multiple="multiple" >
                
                 @foreach ($kategoris as $item)
                 <option value="{{$item->id}}">{{ $item->name}}</option>

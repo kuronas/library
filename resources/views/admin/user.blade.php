@@ -116,7 +116,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link  active" href="peminjaman">
+                    <a class="nav-link  active" href="adminpeminjaman">
                       <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <title>shop </title>
@@ -143,9 +143,12 @@
             <div class="mt-5">
               <h2>data user</h2>
             </div>
+  
 
             <div class="m-3">
-              <a href="add-user" class="btn btn-primary">Add User</a>
+              @if (Auth::user()->usertype !== 'petugas')
+                <a href="add-user" class="btn btn-primary">Add User</a>
+              @endif
             </div>
 
             <table class="table" style="width: 100%">
@@ -159,21 +162,40 @@
               </thead>
               <tbody>
                 @foreach ($users as $item)
-                <tr> 
-                  <td >
-                    {{ $loop->iteration}}
-                  </td>
-                  <td >
-                    {{ $item->name}}
-                  </td>
-                  <td >
-                    {{ $item->nama_lengkap}}
-                  </td>
-                  <td >
-                    <a href="detail-user/{{$item->slug}}">detail</a>
-                    <a href="delete-user/{{$item->slug}}">delete</a>
-                   </td>
-                  @endforeach
+                @if (Auth::user()->usertype === 'admin')
+                  <tr> 
+                    <td>
+                      {{ $loop->iteration}}
+                    </td>
+                    <td>
+                      {{ $item->name}}
+                    </td>
+                    <td>
+                      {{ $item->nama_lengkap}}
+                    </td>
+                    <td>
+                      <a href="detail-user/{{$item->slug}}" class="btn btn-primary">detail</a>
+                      <a href="delete-user/{{$item->slug}}" class="btn btn-danger">delete</a>
+                    </td>
+                  </tr>
+                @elseif  (Auth::user()->usertype !== 'petugas' || $item->usertype !== 'admin')
+                  <tr> 
+                    <td>
+                      {{ $loop->iteration - 1}}
+                    </td>
+                    <td>
+                      {{ $item->name}}
+                    </td>
+                    <td>
+                      {{ $item->nama_lengkap}}
+                    </td>
+                    <td>
+                      <a href="detail-user/{{$item->slug}}" class="btn btn-primary">detail</a>
+                      <a href="delete-user/{{$item->slug}}" class="btn btn-danger">delete</a>
+                    </td>
+                  </tr>
+                @endif
+              @endforeach
                 </tr>
               </tbody>
             </table>

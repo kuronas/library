@@ -116,7 +116,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link  active" href="peminjaman">
+                    <a class="nav-link  active" href="adminpeminjaman">
                       <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <title>shop </title>
@@ -145,7 +145,7 @@
             </div>
 
             <div class="m-3">
-              <a href="exportpdf" class="btn btn-primary">download data</a>
+              <a href="exportpdf" class="btn btn-primary">Laporan Peminjaman</a>
             </div>
 
             <table class="table" style="width: 50%" >
@@ -168,9 +168,9 @@
                   <td>{{ $item->buku->judul}}</td>
                   <td>{{ $item->tanggal_peminjaman}}</td>
                   <td>{{ $item->tanggal_pengembalian}}</td>
-                  <td  @if ($item->status == 'sudah dikembalikan') style="background-color: green; color:white;" @endif>{{ $item->status}}</td>
+                  <td  @if ($item->status == 'sudah dikembalikan') style="color:green;" @endif>{{ $item->status}}</td>
                   <td>
-                    <a href="/approved/{{$item->id}}">dikembalikan</a>
+                    <a href="/approved/{{$item->id}}" class="btn btn-primary">dikembalikan</a>
                   </td>
                 </tr>
                 @endforeach

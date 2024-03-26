@@ -31,7 +31,7 @@ Route::get('/home',[HomeController::class,'index']);
 
 Route::get('/admin',[AdminController::class,'index']);
 // buku
-Route::get('/buku',[BukuController::class,'index'])->middleware(['auth', 'verified'])->name('admin');
+Route::get('/buku',[BukuController::class,'index']);
 Route::get('/add-buku',[BukuController::class,'tambah']);
 Route::post('/add-buku',[BukuController::class,'store']);
 Route::get('/edit-buku/{slug}',[BukuController::class,'edit']);

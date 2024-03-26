@@ -146,7 +146,7 @@
             
             <div class="m-5 flex justify-between">
               <div>
-                  <a href="exportpdf" class="btn btn-primary mr-4">Download Data</a>
+                  <a href="exportpdf" class="btn btn-primary mr-4">Laporan buku</a>
               </div>
               <div>
                   <a href="add-buku" class="btn btn-primary bg-green-600">Add</a>
@@ -156,12 +156,12 @@
         
      
 
-            <table class="table pb-10" style="width: 100%">
+            <table class="table pb-10">
               <thead>
                 <tr>
                   <th>No.</th>
                   <th>Buku</th>         
-                  <th>sampul</th>        
+                    
                   <th>Penulis</th>
                   <th>Kategori</th>
                   <th>Penerbit</th>
@@ -178,11 +178,9 @@
                   <td >
                     {{ $item->judul}}
                   </td>
+              
                   <td >
-                    <img src=" storage/cover/{{ $item->cover}}" alt="" height="100px" width="100px" >
-                   
-                  </td>
-                  <td >
+                    
                     {{ $item->penulis}}
                   </td>
                     <td >
@@ -196,8 +194,8 @@
                     {{ $item->tahunterbit}}
                   </td>
                   <td >
-                   <a href="edit-buku/{{$item->slug}}">edit</a>
-                   <a href="delete-buku/{{$item->slug}}">delete</a>
+                   <a href="edit-buku/{{$item->slug}}" class="btn btn-primary">edit</a>
+                   <a href="delete-buku/{{$item->slug}}" class="btn btn-danger">delete</a>
                   </td>
                 </tr>
                 @endforeach
