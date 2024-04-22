@@ -119,7 +119,7 @@ class BukuController extends Controller
         return view('user.detail-buku', ['kategoris' => $kategoris, 'buku' => $buku, 'koleksipribadi' => $koleksipribadi, 'ulasan' => $ulasan]);
     }
 
-    public function exportpdf(){
+    public function exportpdfs(){
         $data = Buku::all();
 
         view()->share('data' ,$data);

@@ -146,7 +146,7 @@
             
             <div class="m-5 flex justify-between">
               <div>
-                  <a href="exportpdf" class="btn btn-primary mr-4">Laporan buku</a>
+                  <a href="exportpdfs" class="btn btn-primary mr-4">Laporan buku</a>
               </div>
               <div>
                   <a href="add-buku" class="btn btn-primary bg-green-600">Add</a>

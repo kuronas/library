@@ -41,7 +41,7 @@ Route::delete('/destroy-buku/{slug}',[BukuController::class,'destroy']);
 Route::get('/buku-sampah',[BukuController::class,'deletedbuku']);
 Route::get('/restore-buku/{slug}',[BukuController::class,'restore']);
 Route::get('/detailbuku/{slug}',[BukuController::class,'detailbuku']);
-Route::get('exportpdf',[BukuController::class,'exportpdf']);
+Route::get('exportpdfs',[BukuController::class,'exportpdfs']);
 
 
 // kategori
