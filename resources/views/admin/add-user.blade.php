@@ -212,6 +212,7 @@
             <select name="usertype" id="usertype" class="form-control" required>
              
               <option value="user">user</option>
+              
       
           </select>
           </div>

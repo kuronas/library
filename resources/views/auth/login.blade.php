@@ -41,7 +41,7 @@
                 <input  id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
            
               </div>
-              <x-input-error :messages="$errors->get('email')" class="mt-2 " style="color: red"/>
+            
               <div class="input-box">
                 <i class="fas fa-lock"></i>
                 <label for="password" :value="__('Password')" ></label>
@@ -51,7 +51,7 @@
                 required autocomplete="current-password" >
                
               </div>
-              <x-input-error :messages="$errors->get('password')" class="mt-2" style="color: red" />
+              <x-input-error :messages="$errors->get('email')" class="mt-2 " style="color: red"/>
                 @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
