@@ -64,7 +64,23 @@ public function datapeminjaman()
     public function approved($id){
 
         $peminjaman = Peminjaman::find($id);
-        $peminjaman->status='sudah dikembalikan';
+        $peminjaman->status='sedang dipinjam';
+        $peminjaman->save();
+        return redirect()->back();
+    }
+
+    public function notapproved($id){
+
+        $peminjaman = Peminjaman::find($id);
+        $peminjaman->status='tidak disetujui';
+        $peminjaman->save();
+        return redirect()->back();
+    }
+
+    public function back($id){
+
+        $peminjaman = Peminjaman::find($id);
+        $peminjaman->status='telah dikembalikan';
         $peminjaman->save();
         return redirect()->back();
     }

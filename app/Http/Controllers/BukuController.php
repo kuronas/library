@@ -33,16 +33,14 @@ class BukuController extends Controller
             'penulis' => 'required|max:255',
             'penerbit' => 'required|max:255',
             'tahunterbit' => 'required|max:255',
+        
+            
         ]);
-        $newName='';
-        if($request->file('image')){
-            $extension = $request->file('image')->getCLientOriginalExtension();
-            $newName = $request->judul.'.'.now()->timestamp.'.'.$extension;
-            $request->file('image')->storeAs('cover', $newName);
-        }
-        $request['cover'] = $newName;
+    
         $buku = Buku::create($request -> all());
-        $buku->kategoris()->sync($request->kategoribuku);
+        if($request->kategoris){
+            $buku->kategoris()->sync($request->kategoris);
+         }
         return redirect('buku')->with('status', 'Data add Succesfully!');
     }
 
@@ -55,16 +53,7 @@ class BukuController extends Controller
     public function update(Request $request,$slug){
    
  
-       if($request->file('image')){
-        $extension = $request->file('image')->getCLientOriginalExtension();
-        $newName = $request->judul.'.'.now()->timestamp.'.'.$extension;
-        $request->file('image')->storeAs('cover', $newName);
-        $request['cover'] = $newName;
-       }
-       $buku = Buku::where('slug', $slug)->first();
-   
-      $buku->update($request->all());
-
+     
     $buku = Buku::where('slug', $slug)->first();
     if($request->kategoris){
         $buku->kategoris()->sync($request->kategoris);

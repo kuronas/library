@@ -67,7 +67,7 @@
             </thead>
             <tbody>
               @foreach ($peminjaman as $item)
-              <tr align="center" @if ($item->status == 'sudah dikembalikan') style="background-color: green; color:white;" @endif> 
+              <tr align="center" @if ($item->status == 'Sedang Di Pinjam') style="color: green; " @endif> 
                 <td style="padding: 10px">
                   {{ $loop->iteration}}
                 </td>
@@ -80,7 +80,7 @@
                  <td style="padding: 10px">
                     {{ $item->tanggal_pengembalian}}
                   </td>
-                   <td style="padding: 10px"  >{{ $item->status}}</td>
+                   <td style="padding: 10px "  >{{ $item->status}}</td>
                    
                  
                 @endforeach

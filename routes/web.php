@@ -70,7 +70,10 @@ Route::get('/peminjaman',[PeminjamanController::class,'index']);
 Route::post('/peminjaman',[PeminjamanController::class,'store']);
 Route::get('/datapeminjaman',[PeminjamanController::class,'datapeminjaman']);
 Route::get('/approved/{id}',[PeminjamanController::class,'approved']);
+Route::get('/notapproved/{id}',[PeminjamanController::class,'notapproved']);
+Route::get('/back/{id}',[PeminjamanController::class,'back']);
 Route::get('exportpdf',[PeminjamanController::class,'exportpdf']);
+
 // koleksi
 Route::get('/koleksi',[KoleksiController::class,'index']);
 Route::post('/koleksi',[KoleksiController::class,'store']);

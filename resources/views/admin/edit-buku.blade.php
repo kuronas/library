@@ -175,21 +175,7 @@
             <br>
             <input type="number" name="tahunterbit" id="tahunterbit" class="form-control" placeholder="tahun diterbitkan" value="{{$buku->tahunterbit}}">
           </div>
-          <div>
-            <label for="image" class="form-label">image</label>
-            <br>
-            <input type="file" name="image"  class="form-control" >
-          </div>
-          <div>
-            <label for="currentimage" class="form-label">image yang sudah ada</label>
-            <div>
-              @if($buku->cover!='')
-              <img src="{{ asset('storage/cover/'.$buku->cover)}}" alt="" width="100px" height="100px">
-              @else 
-              <img src="{{ asset('images/no_image.png')}}" alt="">
-              @endif
-            </div>
-          </div>
+    
          
 
           <div>

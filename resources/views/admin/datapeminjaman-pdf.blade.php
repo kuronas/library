@@ -49,7 +49,7 @@
           <td>{{ $item->buku->judul}}</td>
           <td>{{ $item->tanggal_peminjaman}}</td>
           <td>{{ $item->tanggal_pengembalian}}</td>
-          <td  @if ($item->status == 'sudah dikembalikan') style="background-color: green; color:white;" @endif>{{ $item->status}}</td>
+          <td  @if ($item->status == 'sedang dipinjam') style="background-color: green; color:white;" @endif>{{ $item->status}}</td>
         </tr>
         @endforeach
         </tr>

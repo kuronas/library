@@ -172,23 +172,19 @@
           <div>
             <label for="tahunterbit" class="form-label">tahun terbit</label>
             <br>
-            <input type="number" name="tahunterbit" id="tahunterbit" class="form-control" placeholder="Nama penerbit">
+            <input type="number" name="tahunterbit" id="tahunterbit" class="form-control" placeholder="Tahun Terbit">
           </div>
-          <label for="image" class="form-label">image</label>
-            <br>
-            <input type="file" name="image"  class="form-control" >
-          </div>
-       
+          
           <div>
             <label for="kategoribuku" class="form-label">kategori</label>
             <br>
             
-            <select name="kategoris[]" id="kategoribuku" class="form-control select-multiple w-45" multiple="multiple" >
+            <select name="kategoris[]" id="kategoribuku" class="form-control select-multiple" multiple="multiple" >
                
-                @foreach ($kategoris as $item)
-                <option value="{{$item->id}}">{{ $item->name}}</option>
-                @endforeach
-            </select>
+               @foreach ($kategoris as $item)
+               <option value="{{$item->id}}">{{ $item->name}}</option>
+               @endforeach
+           </select>
           </div>
           <div class="mt-5">
             <button class="btn btn-success" type="submit" style="background-color: chartreuse">Add</button>

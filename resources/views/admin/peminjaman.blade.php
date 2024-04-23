@@ -170,7 +170,9 @@
                   <td>{{ $item->tanggal_pengembalian}}</td>
                   <td  @if ($item->status == 'sudah dikembalikan') style="color:green;" @endif>{{ $item->status}}</td>
                   <td>
-                    <a href="/approved/{{$item->id}}" class="btn btn-primary">dikembalikan</a>
+                    <a href="/approved/{{$item->id}}" class="btn btn-primary">Approve</a>
+                    <a href="/notapproved/{{$item->id}}" class="btn btn-primary">Not approve</a>
+                    <a href="/back/{{$item->id}}" class="btn btn-primary">dikembalikan</a>
                   </td>
                 </tr>
                 @endforeach

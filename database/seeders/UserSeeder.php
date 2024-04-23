@@ -23,5 +23,14 @@ class UserSeeder extends Seeder
             'usertype' => 'admin',
             'password' => Hash::make('admin')
         ]);
+
+        User::create([
+            'name' => 'petugas',
+            'nama_lengkap' => 'petugas',
+            'alamat' => 'petugas',
+            'email' => 'petugas@gmail.com',
+            'usertype' => 'petugas',
+            'password' => Hash::make('petugas')
+        ]);
     }
 }

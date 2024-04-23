@@ -96,7 +96,7 @@
                 <div class="card h-100" style="width: 17rem; ">
                   <div >
                     @if($item->cover!='')
-                    <img style="margin-left: auto; margin-right: auto; padding: 5px 10px; width: 180px; height:200px; " class="card-img-top" src="{{ asset('storage/cover/'.$item->cover)}}" alt="">
+                    <img style="margin-left: auto; margin-right: auto; padding: 5px 10px; width: 180px; height:200px; " class="card-img-top" src="{{ asset('public/storage/app/public/cover/'.$item->cover)}}" alt="">
                     @else  
                     <img style="margin-left: auto; margin-right: auto; padding: 10px 15px; width: 180px; height:200px;" class="card-img-top"src="{{ asset('images/no_image.png')}}" alt="">
                     @endif

@@ -210,10 +210,9 @@
             <label for="usertype" class="form-label">role</label>
             
             <select name="usertype" id="usertype" class="form-control" required>
-              <option value="">--Select Role--</option>
+             
               <option value="user">user</option>
-              <option value="petugas">petugas</option>
-              <option value="admin">admin</option>
+      
           </select>
           </div>
           <div class="mt-5">
