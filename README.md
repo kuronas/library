@@ -35,5 +35,6 @@ pass:petugas
 ![image](https://github.com/kuronas/library/assets/110076250/6f0fa891-0683-4001-bfd8-7bf2be62b262)
 
 ## uml
-![image](https://github.com/kuronas/library/assets/110076250/94d080de-9f48-44b1-a600-b7beeff40be7)
+![image](https://github.com/kuronas/library/assets/110076250/6406f5f8-60e4-4867-873b-81bede65902b)
+
 
