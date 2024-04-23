@@ -211,26 +211,7 @@
               <h2>data peminjaman</h2>
             </div>
 
-            <table class="table" style="width: 50%">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>User</th>
-                  <th>Judul Buku</th>
-                  <th>Waktu peminjaman</th>
-                  <th>Waktu pengembalian</th>
-                  <th>Waktu pengembalian asli</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td colspan='7' style="text-align: center">
-                    No Data
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+           
             
                         
         <!--   Core JS Files   -->
