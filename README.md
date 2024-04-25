@@ -31,7 +31,7 @@ petugas@gmail.com
 
 pass:petugas
 
-## EDD
+## ERD
 ![image](https://github.com/kuronas/library/assets/110076250/6f0fa891-0683-4001-bfd8-7bf2be62b262)
 
 ## uml
